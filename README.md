@@ -47,11 +47,11 @@
 ### 유튜브 단축주소
 
 - 유튜브 영상: `ZLE.KR/yt/{유튜브 영상 아이디}`
-  - 예제: [ZLE.KR/yt/1ZX1vEDTfY4](https://zle.kr/yt/1ZX1vEDTfY4)
+  - 예제: [ZLE.KR/yt/1ZX1vEDTfY4](https://zle.kr/yt/1ZX1vEDTfY4), [ZLE.KR/yt/yebNIHKAC4A](https://zle.kr/yt/yebNIHKAC4A)
 - 유튜브 영상 + 시작 시간 옵션: `ZLE.KR/{유튜브 영상 아이디}/{시작 시간}`
-  - 예제: [ZLE.KR/yt/1ZX1vEDTfY4/1m6s](https://zle.kr/yt/1ZX1vEDTfY4/1m6s)
+  - 예제: [ZLE.KR/yt/1ZX1vEDTfY4/1m6s](https://zle.kr/yt/1ZX1vEDTfY4/1m6s), [ZLE.KR/yt/yebNIHKAC4A/56](https://zle.kr/yt/yebNIHKAC4A/56)
 - 유튜브 영상 썸네일: `ZLE.KR/yt/img/{유튜브 영상 아이디}`
-  - 예제: [ZLE.KR/yt/img/1ZX1vEDTfY4](https://zle.kr/yt/img/1ZX1vEDTfY4)
+  - 예제: [ZLE.KR/yt/img/1ZX1vEDTfY4](https://zle.kr/yt/img/1ZX1vEDTfY4), [ZLE.KR/yt/img/yebNIHKAC4A](https://zle.kr/yt/img/yebNIHKAC4A)
 
 ## 주의사항
 
