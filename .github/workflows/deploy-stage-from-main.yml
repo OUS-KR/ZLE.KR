@@ -1,0 +1,26 @@
+name: Deploy to stage from main
+
+on:
+  workflow_dispatch: {}
+      
+jobs:
+  merge-to-stage:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout stage branch
+      uses: actions/checkout@v3
+      with:
+        ref: stage
+        fetch-depth: 0
+        
+    - name: Setup Git
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        
+    - name: Merge main into stage branch
+      run: |
+        git fetch origin
+        git merge origin/main -m "Merge main into stage for deployment"
+        git push origin stage
