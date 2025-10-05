@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자 맞추기 게임</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        #game-container {
+            text-align: center;
+            background-color: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #1c1e21;
+        }
+        p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        #guess-input {
+            width: 100px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #dddfe2;
+            border-radius: 6px;
+            text-align: center;
+            margin-right: 10px;
+        }
+        #guess-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #1877f2;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        #guess-button:hover {
+            background-color: #166fe5;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            min-height: 25px;
+        }
+        #reset-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #1877f2;
+            background-color: #e7f3ff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            display: none; /* Initially hidden */
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <h1>숫자 맞추기 게임</h1>
+        <p>1부터 100 사이의 숫자를 맞춰보세요!</p>
+        <div>
+            <input type="number" id="guess-input" min="1" max="100">
+            <button id="guess-button">추측</button>
+        </div>
+        <p id="message"></p>
+        <button id="reset-button">새 게임</button>
+    </div>
+
+    <script>
+        let targetNumber;
+        let attempts;
+
+        const guessInput = document.getElementById('guess-input');
+        const guessButton = document.getElementById('guess-button');
+        const message = document.getElementById('message');
+        const resetButton = document.getElementById('reset-button');
+
+        function initGame() {
+            targetNumber = Math.floor(Math.random() * 100) + 1;
+            attempts = 0;
+            message.textContent = '';
+            guessInput.value = '';
+            guessInput.disabled = false;
+            guessButton.disabled = false;
+            resetButton.style.display = 'none';
+        }
+
+        function checkGuess() {
+            const userGuess = parseInt(guessInput.value);
+            attempts++;
+
+            if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
+                message.textContent = '1에서 100 사이의 숫자를 입력하세요.';
+                message.style.color = 'red';
+                return;
+            }
+
+            if (userGuess === targetNumber) {
+                message.textContent = `정답! ${attempts}번 만에 맞추셨습니다!`;
+                message.style.color = 'green';
+                endGame();
+            } else if (userGuess < targetNumber) {
+                message.textContent = '너무 작아요! 더 큰 숫자를 시도해보세요.';
+                message.style.color = '#f5a623';
+            } else {
+                message.textContent = '너무 커요! 더 작은 숫자를 시도해보세요.';
+                message.style.color = '#d0021b';
+            }
+            guessInput.value = '';
+            guessInput.focus();
+        }
+
+        function endGame() {
+            guessInput.disabled = true;
+            guessButton.disabled = true;
+            resetButton.style.display = 'inline-block';
+        }
+
+
+
+        guessButton.addEventListener('click', checkGuess);
+        guessInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                checkGuess();
+            }
+        });
+        resetButton.addEventListener('click', initGame);
+
+        // Initialize the game
+        initGame();
+    </script>
+</body>
+</html>
