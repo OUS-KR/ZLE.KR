@@ -7,14 +7,14 @@
 	<meta name="viewport" content="initial-scale=1, width=device-width">
 	
 	
-	<title>${PAGE_TITLE} - ZLE.KR</title>
-	<link rel="canonical" href="https://zle.kr/${CANONICAL_PATH}">
-	<meta name="title" content="${PAGE_TITLE} - ZLE.KR">
-	<meta name="description" content="${PAGE_DESC}">
+	<title>마크다운 문법 예제 - ZLE.KR</title>
+	<link rel="canonical" href="https://zle.kr/u/zle/articles/md_example">
+	<meta name="title" content="마크다운 문법 예제 - ZLE.KR">
+	<meta name="description" content="섹션 1: 기본 마크다운 문법 1-1. 제목 (Headings) H1 제목 H2 제목 H3 제목 H4 제목 H5 제목 H6 제목 1-2. 텍스트 스타일 굵은 텍스트 (Bold) 기">
 	<meta property="og:type" content="website">
-	<meta property="og:title" content="${PAGE_TITLE} - ZLE.KR">
-	<meta property="og:description" content="${PAGE_DESC}">
-	<meta property="og:url" content="https://zle.kr/${CANONICAL_PATH}">
+	<meta property="og:title" content="마크다운 문법 예제 - ZLE.KR">
+	<meta property="og:description" content="섹션 1: 기본 마크다운 문법 1-1. 제목 (Headings) H1 제목 H2 제목 H3 제목 H4 제목 H5 제목 H6 제목 1-2. 텍스트 스타일 굵은 텍스트 (Bold) 기">
+	<meta property="og:url" content="https://zle.kr/u/zle/articles/md_example">
 	
 		
     <style type="text/css">@font-face {font-family:Inter;font-style:normal;font-weight:300;src:url(/cf-fonts/s/inter/5.0.16/latin/300/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:300;src:url(/cf-fonts/s/inter/5.0.16/cyrillic-ext/300/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:300;src:url(/cf-fonts/s/inter/5.0.16/greek/300/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:300;src:url(/cf-fonts/s/inter/5.0.16/vietnamese/300/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:300;src:url(/cf-fonts/s/inter/5.0.16/cyrillic/300/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:300;src:url(/cf-fonts/s/inter/5.0.16/greek-ext/300/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:300;src:url(/cf-fonts/s/inter/5.0.16/latin-ext/300/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:400;src:url(/cf-fonts/s/inter/5.0.16/greek-ext/400/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:400;src:url(/cf-fonts/s/inter/5.0.16/latin/400/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:400;src:url(/cf-fonts/s/inter/5.0.16/latin-ext/400/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:400;src:url(/cf-fonts/s/inter/5.0.16/cyrillic-ext/400/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:400;src:url(/cf-fonts/s/inter/5.0.16/vietnamese/400/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:400;src:url(/cf-fonts/s/inter/5.0.16/cyrillic/400/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:400;src:url(/cf-fonts/s/inter/5.0.16/greek/400/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:500;src:url(/cf-fonts/s/inter/5.0.16/latin-ext/500/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:500;src:url(/cf-fonts/s/inter/5.0.16/latin/500/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:500;src:url(/cf-fonts/s/inter/5.0.16/greek/500/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:500;src:url(/cf-fonts/s/inter/5.0.16/cyrillic-ext/500/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:500;src:url(/cf-fonts/s/inter/5.0.16/vietnamese/500/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:500;src:url(/cf-fonts/s/inter/5.0.16/greek-ext/500/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:500;src:url(/cf-fonts/s/inter/5.0.16/cyrillic/500/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:600;src:url(/cf-fonts/s/inter/5.0.16/cyrillic/600/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:600;src:url(/cf-fonts/s/inter/5.0.16/vietnamese/600/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:600;src:url(/cf-fonts/s/inter/5.0.16/greek/600/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:600;src:url(/cf-fonts/s/inter/5.0.16/greek-ext/600/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:600;src:url(/cf-fonts/s/inter/5.0.16/cyrillic-ext/600/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:600;src:url(/cf-fonts/s/inter/5.0.16/latin/600/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:600;src:url(/cf-fonts/s/inter/5.0.16/latin-ext/600/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:700;src:url(/cf-fonts/s/inter/5.0.16/greek/700/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:700;src:url(/cf-fonts/s/inter/5.0.16/cyrillic/700/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:700;src:url(/cf-fonts/s/inter/5.0.16/cyrillic-ext/700/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:700;src:url(/cf-fonts/s/inter/5.0.16/latin-ext/700/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:700;src:url(/cf-fonts/s/inter/5.0.16/vietnamese/700/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:700;src:url(/cf-fonts/s/inter/5.0.16/greek-ext/700/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:700;src:url(/cf-fonts/s/inter/5.0.16/latin/700/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}</style>
@@ -309,7 +309,7 @@
                         <div class="app-toolbar-wrapper w-100">
                             
                             
-                            <h1 class="page-heading text-dark lh-1 fw-bolder fs-2x">${PAGE_TITLE}</h1>
+                            <h1 class="page-heading text-dark lh-1 fw-bolder fs-2x">마크다운 문법 예제</h1>
                             
                                 
                             
@@ -326,12 +326,15 @@
                                     </li>
                                     
                                     <li class="breadcrumb-item text-gray-700 lh-1">
-                                                                                <a href="/u/${USER_ID}/" class="text-gray-700 text-hover-primary">
-                                            <span>${USER_ID}</span>
+                                                                                <a href="/u/zle/" class="text-gray-700 text-hover-primary">
+                                            <span>zle</span>
                                         </a>
                                                                             </li>
                                                                         
-                                                                        ${BREADCRUMB_ITEMS}
+                                                                        <li class="breadcrumb-item lh-1"><i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i></li>
+<li class="breadcrumb-item text-gray-700 lh-1"><a href="/u/zle/articles" class="text-gray-700 text-hover-primary"><span>articles</span></a></li>
+<li class="breadcrumb-item lh-1"><i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i></li>
+<li class="breadcrumb-item text-gray-700 lh-1"><a href="/u/zle/articles/md_example" class="text-gray-700 text-hover-primary"><span>md_example</span></a></li>
                                                                     </ul>
                             </nav>
                             
@@ -374,11 +377,384 @@
                                     <div class="card shadow-sm">
                                         <div class="card-header">
                                             <div class="card-title">
-                                                <h2>${ARTICLE_TITLE}</h2>
+                                                <h2>마크다운 문법 예제</h2>
                                             </div>
                                         </div>
                                         <div class="card-body fs-5 fs-lg-6">
-                                            <div class="markdown-body" style="color: var(--bs-card-cap-color); background-color: var(--bs-card-cap-bg);">${ARTICLE_HTML}</div>
+                                            <div class="markdown-body" style="color: var(--bs-card-cap-color); background-color: var(--bs-card-cap-bg);"><h3>섹션 1: 기본 마크다운 문법</h3>
+<h4>1-1. 제목 (Headings)</h4>
+<h1>H1 제목</h1>
+<h2>H2 제목</h2>
+<h3>H3 제목</h3>
+<h4>H4 제목</h4>
+<h5>H5 제목</h5>
+<h6>H6 제목</h6>
+<h4>1-2. 텍스트 스타일</h4>
+<p><strong>굵은 텍스트</strong> (Bold)</p>
+<p><em>기울임 텍스트</em> (Italic)</p>
+<p><em><strong>굵고 기울인 텍스트</strong></em> (Bold + Italic)</p>
+<p><del>취소선</del> (Strikethrough)</p>
+<p><code>인라인 코드</code> (Inline Code)</p>
+<h4>1-3. 링크</h4>
+<p><a href="https://example.com">일반 링크</a></p>
+<p><a href="https://github.com">GitHub</a></p>
+<p><a href="https://example.com" title="제목">외부 링크 with title</a></p>
+<h4>1-4. 이미지</h4>
+<p><img src="https://via.placeholder.com/150" alt="대체 텍스트"></p>
+<h4>1-5. 리스트</h4>
+<h5>순서 없는 리스트</h5>
+<ul>
+<li>항목 1</li>
+<li>항목 2</li>
+<li>항목 3<ul>
+<li>중첩 항목 2-1</li>
+<li>중첩 항목 2-2</li>
+</ul>
+</li>
+<li>항목 4</li>
+</ul>
+<h5>순서 있는 리스트</h5>
+<ol>
+<li>첫 번째</li>
+<li>두 번째</li>
+<li>세 번째<ol>
+<li>중첩 1</li>
+<li>중첩 2</li>
+</ol>
+</li>
+<li>네 번째</li>
+</ol>
+<h4>1-6. 인용문 (Blockquote)</h4>
+<blockquote>
+<p>이것은 인용문입니다.<br>여러 줄도 가능합니다.</p>
+</blockquote>
+<blockquote>
+<p>중첩된 인용문</p>
+<blockquote>
+<p>더 깊은 중첩</p>
+<blockquote>
+<p>더더 깊은 중첩</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h4>1-7. 코드 블록</h4>
+<pre><code class="language-javascript">function hello() {
+  console.log(&quot;Hello, World!&quot;);
+}
+</code></pre>
+<pre><code class="language-python">def hello():
+    print(&quot;Hello, World!&quot;)
+</code></pre>
+<pre><code class="language-bash">echo &quot;Hello, World!&quot;
+</code></pre>
+<h4>1-8. 수평선 (Horizontal Rule)</h4>
+<hr>
+<h4>1-9. 테이블</h4>
+<table>
+<thead>
+<tr>
+<th>헤더 1</th>
+<th>헤더 2</th>
+<th>헤더 3</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>셀 1-1</td>
+<td>셀 1-2</td>
+<td>셀 1-3</td>
+</tr>
+<tr>
+<td>셀 2-1</td>
+<td>셀 2-2</td>
+<td>셀 2-3</td>
+</tr>
+</tbody></table>
+<h4>1-10. 체크리스트</h4>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 완료된 항목</li>
+<li><input disabled="" type="checkbox"> 미완료 항목</li>
+<li><input checked="" disabled="" type="checkbox"> 또 다른 완료 항목</li>
+</ul>
+<hr>
+<h3>섹션 2: 확장 마크다운 문법 (커스텀)</h3>
+<h4>2-1. Featured Section</h4>
+<section class="featured-section">
+<h2>🌟 특별 섹션</h2>
+<p>이것은 특별히 강조된 섹션입니다.</p>
+<p>여러 줄의 텍스트가 가능합니다.</p>
+</section>
+<h4>2-2. Card Container</h4>
+<div class="container-card">
+<h3>📦 카드 제목</h3>
+<p>카드 내용입니다.</p>
+<ul>
+<li>리스트 항목 1</li>
+<li>리스트 항목 2<!--CARD_END--></li>
+</ul>
+<h4>2-3. Grid Layout (2열)</h4>
+<div class="grid-2 grid" style="display: grid; grid-template-columns: repeat(2, 1fr);">
+<div class="grid-item" data-padding="15px"><strong>📱 프로젝트 A</strong></div>
+<div class="grid-item" data-padding="15px"><strong>🤖 프로젝트 B</strong></div>
+<div class="grid-item" data-padding="15px"><strong>🎵 프로젝트 C</strong></div>
+<div class="grid-item" data-padding="15px"><strong>📊 프로젝트 D</strong></div>
+</div>
+<h3>2-4. Grid Layout (3열)</h3>
+<div class="grid-3 grid" style="display: grid; grid-template-columns: repeat(3, 1fr);">
+<div class="grid-item" data-padding="15px"><strong>🔴 항목 1</strong></div>
+<div class="grid-item" data-padding="15px"><strong>🟢 항목 2</strong></div>
+<div class="grid-item" data-padding="15px"><strong>🟡 항목 3</strong></div>
+<div class="grid-item" data-padding="15px"><strong>🔵 항목 4</strong></div>
+<div class="grid-item" data-padding="15px"><strong>⚫ 항목 5</strong></div>
+<div class="grid-item" data-padding="15px"><strong>⚪ 항목 6</strong></div>
+</div>
+<h4>2-5. Link Buttons</h4>
+<p><a href="https://github.com/" class="btn btn-github" role="button" style="width: 100%; ">GitHub 방문</a></p>
+<p><a href="https://youtube.com/" class="btn btn-youtube" role="button" style="width: 50%; ">YouTube 구독</a></p>
+<p><a href="https://twitter.com/" class="btn btn-twitter" role="button">Twitter 팔로우</a></p>
+<p><a href="https://example.com" class="btn btn-primary" role="button">기본 버튼</a></p>
+<p><a href="https://example.com" class="btn btn-secondary" role="button">보조 버튼</a></p>
+<h4>2-6. Badges</h4>
+<span class="badge badge-success">성공</span>
+
+<span class="badge badge-warning">경고</span>
+
+<span class="badge badge-info">정보</span>
+
+<span class="badge badge-new">신규</span>
+
+<h4>2-7. Youtube</h4>
+<div class="youtube-embed">
+  <iframe 
+    src="https://www.youtube.com/embed/1ZX1vEDTfY4" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    allowfullscreen>
+  </iframe>
+</div>
+<div class="youtube-embed">
+  <iframe 
+    src="https://www.youtube.com/embed/yebNIHKAC4A" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    allowfullscreen>
+  </iframe>
+</div>
+<hr>
+<h3>섹션 3: 복합 케이스 (여러 기능 조합)</h3>
+<h4>3-1. Featured + 내부 마크다운</h4>
+<section class="featured-section">
+<h2>🎯 완전한 예제</h2>
+<p><strong>굵은 텍스트</strong>, <em>기울임</em>, <del>취소선</del></p>
+<ul>
+<li>리스트 항목 1</li>
+<li>리스트 항목 2</li>
+</ul>
+<p><a href="https://example.com">링크</a></p>
+<pre><code class="language-javascript">console.log(&quot;코드 블록&quot;);
+</code></pre>
+</section>
+<h4>3-2. Card + 테이블</h4>
+<!--CARD_START-->
+<h3>데이터 테이블</h3>
+<table>
+<thead>
+<tr>
+<th>이름</th>
+<th>값</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>A</strong></td>
+<td>100</td>
+</tr>
+<tr>
+<td><strong>B</strong></td>
+<td>200</td>
+</tr>
+</tbody></table>
+</div>
+<h4>3-3. Grid + Bold/Italic 조합</h4>
+<div class="grid-2 grid" style="display: grid; grid-template-columns: repeat(2, 1fr);">
+<div class="grid-item" data-padding="15px"><strong>굵은 텍스트</strong></div>
+<div class="grid-item" data-padding="15px"><em>기울인 텍스트</em></div>
+<div class="grid-item" data-padding="15px"><em><strong>굵고 기울인</strong></em></div>
+<div class="grid-item" data-padding="15px"><del>취소선</del></div>
+</div>
+<h4>3-4. Featured + Buttons + Badges</h4>
+<section class="featured-section">
+<h2>🚀 액션 섹션</h2>
+<p><a href="https://example.com" class="btn btn-primary" role="button">시작하기</a></p>
+<span class="badge badge-success">준비완료</span>
+</section>
+<h4>3-5. 모든 Grid 크기</h4>
+<h5>2열 Grid</h5>
+<div class="grid-2 grid" style="display: grid; grid-template-columns: repeat(2, 1fr);">
+<div class="grid-item" data-padding="15px">항목 1</div>
+<div class="grid-item" data-padding="15px">항목 2</div>
+<div class="grid-item" data-padding="15px">항목 3</div>
+<div class="grid-item" data-padding="15px">항목 4</div>
+</div>
+<h5>3열 Grid</h5>
+<div class="grid-3 grid" style="display: grid; grid-template-columns: repeat(3, 1fr);">
+<div class="grid-item" data-padding="15px">항목 1</div>
+<div class="grid-item" data-padding="15px">항목 2</div>
+<div class="grid-item" data-padding="15px">항목 3</div>
+<div class="grid-item" data-padding="15px">항목 4</div>
+<div class="grid-item" data-padding="15px">항목 5</div>
+<div class="grid-item" data-padding="15px">항목 6</div>
+</div>
+<h5>4열 Grid</h5>
+<div class="grid-4 grid" style="display: grid; grid-template-columns: repeat(4, 1fr);">
+<div class="grid-item" data-padding="15px">항목 1</div>
+<div class="grid-item" data-padding="15px">항목 2</div>
+<div class="grid-item" data-padding="15px">항목 3</div>
+<div class="grid-item" data-padding="15px">항목 4</div>
+<div class="grid-item" data-padding="15px">항목 5</div>
+<div class="grid-item" data-padding="15px">항목 6</div>
+<div class="grid-item" data-padding="15px">항목 7</div>
+<div class="grid-item" data-padding="15px">항목 8</div>
+</div>
+<h4>3-6. Grid Padding</h4>
+<h5>2열 Grid</h5>
+<div class="grid-2 grid" style="display: grid; grid-template-columns: repeat(2, 1fr);">
+<div class="grid-item" data-padding="0"><img src="1.jpg" alt="img"></div>
+<div class="grid-item" data-padding="0"><img src="2.jpg" alt="img"></div>
+</div>
+<h5>3열 Grid</h5>
+<div class="grid-3 grid" style="display: grid; grid-template-columns: repeat(3, 1fr);">
+<div class="grid-item" data-padding="0"><img src="1.jpg" alt="이미지1"></div>
+<div class="grid-item" data-padding="0"><img src="2.jpg" alt="이미지2"></div>
+<div class="grid-item" data-padding="0"><img src="3.jpg" alt="이미지3"></div>
+</div>
+<h4>3-7. Grid Scrolling</h4>
+<h5>1열 Grid Scrolling</h5>
+<div class="grid-1-scroll grid-scroll" style="display: flex; overflow-x: auto; gap: 16px; width: 100%; padding-bottom: 10px;">
+<div class="grid-item" data-padding="20px"><strong>John Doe</strong></div>
+<div class="grid-item" data-padding="20px"><strong>Jane Smith</strong></div>
+<div class="grid-item" data-padding="20px"><strong>Mike Lee</strong></div>
+</div>
+<style>
+.grid-1-scroll .grid-item {
+  flex-shrink: 0;
+  width: calc(100% - 16px);
+}
+</style>
+<h5>2열 Grid Scrolling</h5>
+<div class="grid-2-scroll grid-scroll" style="display: flex; overflow-x: auto; gap: 16px; width: 100%; padding-bottom: 10px;">
+<div class="grid-item" data-padding="0"><img src="1.jpg" alt="1"></div>
+<div class="grid-item" data-padding="0"><img src="2.jpg" alt="2"></div>
+<div class="grid-item" data-padding="0"><img src="3.jpg" alt="3"></div>
+<div class="grid-item" data-padding="0"><img src="4.jpg" alt="4"></div>
+</div>
+<style>
+.grid-2-scroll .grid-item {
+  flex-shrink: 0;
+  width: calc(50% - 16px);
+}
+</style>
+<h5>3열 Grid Scrolling</h5>
+<div class="grid-3-scroll grid-scroll" style="display: flex; overflow-x: auto; gap: 16px; width: 100%; padding-bottom: 10px;">
+<div class="grid-item" data-padding="10px"><strong>제품1</strong></div>
+<div class="grid-item" data-padding="10px"><strong>제품2</strong></div>
+<div class="grid-item" data-padding="10px"><strong>제품3</strong></div>
+<div class="grid-item" data-padding="10px"><strong>제품4</strong></div>
+</div>
+<style>
+.grid-3-scroll .grid-item {
+  flex-shrink: 0;
+  width: calc(33.333333333333336% - 16px);
+}
+</style>
+<h5>4열 Grid Scrolling</h5>
+<div class="grid-4-scroll grid-scroll" style="display: flex; overflow-x: auto; gap: 16px; width: 100%; padding-bottom: 10px;">
+<div class="grid-item" data-padding="0"><img src="1.jpg" alt="1"></div>
+<div class="grid-item" data-padding="0"><img src="2.jpg" alt="2"></div>
+<div class="grid-item" data-padding="0"><img src="3.jpg" alt="3"></div>
+<div class="grid-item" data-padding="0"><img src="4.jpg" alt="4"></div>
+<div class="grid-item" data-padding="0"><img src="5.jpg" alt="5"></div>
+</div>
+<style>
+.grid-4-scroll .grid-item {
+  flex-shrink: 0;
+  width: calc(25% - 16px);
+}
+</style>
+<hr>
+<h3>섹션 4: 엣지 케이스</h3>
+<h4>4-1. 긴 텍스트</h4>
+<section class="featured-section">
+<h2>긴 텍스트 테스트</h2>
+<p><strong>굵은 긴 텍스트:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+<p><em>기울인 긴 텍스트:</em> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</section>
+<h4>4-2. 특수 문자</h4>
+<p>다음 문자들이 제대로 처리되나요?</p>
+<ul>
+<li><code>&lt;</code> 와 <code>&gt;</code> 꺾쇠</li>
+<li><code>&amp;</code> 앰퍼샌드</li>
+<li><code>&quot;</code> 큰따옴표</li>
+<li><code>&#39;</code> 작은따옴표</li>
+<li><code>\</code> 백슬래시</li>
+</ul>
+<h4>4-3. 중첩된 구조</h4>
+<div class="container-card">
+<h2>카드 내부 구조</h2>
+<h3>하위 제목</h3>
+<p><strong>굵은 텍스트</strong>와 <em>기울인 텍스트</em></p>
+<ul>
+<li>리스트 1</li>
+<li>리스트 2<ul>
+<li>중첩 1</li>
+<li>중첩 2</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://example.com" class="btn btn-primary" role="button">링크</a></p>
+<span class="badge badge-info">배지</span>
+</div>
+<h4>4-4. 빈 줄 처리</h4>
+<p>이것은 문장입니다.</p>
+<p>이것은 다른 문장입니다.</p>
+<p>이것은 더 큰 간격으로 떨어진 문장입니다.</p>
+<h4>4-5. 연속된 마크다운 요소</h4>
+<p><strong>굵음</strong> <em>기울임</em> <em><strong>둘다</strong></em> <del>취소선</del></p>
+<p><a href="https://example.com">링크1</a> <a href="https://example.com">링크2</a></p>
+<span class="badge badge-success">배지1</span> <span class="badge badge-info">배지2</span>
+
+<h4>4-6. 모든 버튼 타입 연속</h4>
+<p><a href="https://example.com" class="btn btn-primary" role="button">Primary</a><br><a href="https://example.com" class="btn btn-secondary" role="button">Secondary</a><br><a href="https://example.com" class="btn btn-github" role="button">GitHub</a><br><a href="https://example.com" class="btn btn-youtube" role="button">YouTube</a><br><a href="https://example.com" class="btn btn-twitter" role="button">Twitter</a></p>
+<h4>4-7. 모든 배지 타입</h4>
+<span class="badge badge-success">Success</span>
+<span class="badge badge-warning">Warning</span>
+<span class="badge badge-info">Info</span>
+<span class="badge badge-new">New</span>
+
+<hr>
+<h3>섹션 5: 실제 Link in Bio 예제</h3>
+<h1>Link in Bio</h1>
+<section class="featured-section">
+<h2>🌟 새로운 프로젝트</h2>
+<p>AI 기반 콘텐츠 생성 플랫폼입니다!</p>
+</section>
+<p><a href="https://github.com/" class="btn btn-github" role="button" style="width: 100%; ">GitHub 방문</a><br><a href="https://youtube.com/" class="btn btn-youtube" role="button" style="width: 100%; ">YouTube 구독</a><br><a href="https://twitter.com/" class="btn btn-twitter" role="button" style="width: 100%; ">Twitter 팔로우</a></p>
+<hr>
+<h2>기술 스택</h2>
+<!--CARD_START-->
+<h3>💻 사용 기술</h3>
+<p><strong>프론트엔드:</strong> JavaScript, React, Vue.js</p>
+<p><strong>백엔드:</strong> Python, Node.js, Express</p>
+<h2><strong>도구:</strong> Git, Docker, AWS<br><!--CARD_END--></h2>
+<h2>프로젝트</h2>
+<div class="grid-2 grid" style="display: grid; grid-template-columns: repeat(2, 1fr);">
+<div class="grid-item" data-padding="15px"><strong>📱 Project A</strong></div>
+<div class="grid-item" data-padding="15px"><strong>🤖 Project B</strong></div>
+<div class="grid-item" data-padding="15px"><strong>🎵 Project C</strong></div>
+<div class="grid-item" data-padding="15px"><strong>📊 Project D</strong></div>
+</div>
+<span class="badge badge-success">Active</span>
+<span class="badge badge-info">Verified</span></div>
                                         </div>
                                     </div>
                                     
@@ -496,14 +872,14 @@
             Kakao.isInitialized();
             
             // Canonical URL
-            const canonical_url = 'https://zle.kr/${CANONICAL_PATH}';
+            const canonical_url = 'https://zle.kr/u/zle/articles/md_example';
             
             function share_with_kakaotalk()
             {
                 Kakao.Share.sendDefault
                 ({
                     objectType: 'text',
-                    text: '${PAGE_TITLE} - ZLE.KR',
+                    text: '마크다운 문법 예제 - ZLE.KR',
                     link:
                     {
                         mobileWebUrl: canonical_url,
@@ -520,7 +896,7 @@
             
             function share_with_naver()
             {
-                window.open('https://share.naver.com/web/shareView?title=' + encodeURIComponent('${PAGE_TITLE} - ZLE.KR') + '&url=' + encodeURIComponent(canonical_url));
+                window.open('https://share.naver.com/web/shareView?title=' + encodeURIComponent('마크다운 문법 예제 - ZLE.KR') + '&url=' + encodeURIComponent(canonical_url));
                 
                 window.dataLayer.push
                 ({
@@ -553,7 +929,7 @@
             
             function share_with_twitter()
             {
-                window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent('${PAGE_TITLE} - ZLE.KR') + '&url=' + encodeURIComponent(canonical_url));
+                window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent('마크다운 문법 예제 - ZLE.KR') + '&url=' + encodeURIComponent(canonical_url));
                 
                 window.dataLayer.push
                 ({
@@ -580,7 +956,7 @@
     
     
     <script>
-    fetch('/${ENV__USER_SERVICE_MENU_INFO_FILE}')
+    fetch('/u/zle/menu.json')
         .then(res => res.json())
         .then(data => {
             const wrapper = document.querySelector('nav > div.fs-5.fs-lg-6');
