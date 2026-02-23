@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="zle.kr – the sizzle suffix · dazzle & fizzle with energy"/>
+<title>zle.kr</title>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;font-family:'Inter',sans-serif}
+body{
+  display:flex;align-items:center;justify-content:center;
+  background:#0a0806;
+  position:relative;
+}
+
+/* ── background orbs ── */
+.bg-orb{position:fixed;border-radius:50%;filter:blur(110px);pointer-events:none;z-index:0}
+.bg-orb-1{width:680px;height:480px;top:-12%;left:-10%;
+  background:radial-gradient(ellipse,rgba(255,140,20,0.17) 0%,transparent 70%)}
+.bg-orb-2{width:540px;height:540px;top:30%;right:-14%;
+  background:radial-gradient(ellipse,rgba(240,80,40,0.14) 0%,transparent 70%)}
+.bg-orb-3{width:420px;height:310px;bottom:-8%;left:18%;
+  background:radial-gradient(ellipse,rgba(255,180,30,0.12) 0%,transparent 70%)}
+.bg-orb-4{width:330px;height:250px;top:8%;right:28%;
+  background:radial-gradient(ellipse,rgba(250,120,30,0.09) 0%,transparent 70%)}
+.bg-orb-5{width:270px;height:200px;bottom:14%;right:8%;
+  background:radial-gradient(ellipse,rgba(255,200,50,0.08) 0%,transparent 70%)}
+.bg-orb-6{width:210px;height:170px;top:45%;left:6%;
+  background:radial-gradient(ellipse,rgba(235,90,20,0.06) 0%,transparent 70%)}
+
+/* ── sizzle field ── */
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    radial-gradient(circle,rgba(255,160,30,0.036) 1px,transparent 1px),
+    radial-gradient(circle,rgba(240,90,30,0.024)  1px,transparent 1px),
+    radial-gradient(circle,rgba(255,210,50,0.018) 1px,transparent 1px);
+  background-size:38px 38px,62px 62px,90px 90px;
+  background-position:0 0,19px 19px,9px 9px;
+}
+
+/* ── scene & card wrap ── */
+.scene{position:relative;z-index:10;perspective:900px}
+.card-wrap{
+  width:380px;height:240px;border-radius:18px;
+  transform-style:preserve-3d;position:relative;cursor:pointer;
+  animation:card-enter 1.1s cubic-bezier(.22,.68,0,1.22) both,
+             float-idle 9.2s ease-in-out 1.2s infinite;
+}
+@keyframes card-enter{
+  from{opacity:0;transform:translateY(13px) rotateX(-16deg) rotateY(9deg) scale(.91)}
+  to  {opacity:1;transform:translateY(0)    rotateX(0deg)   rotateY(0deg) scale(1)}
+}
+@keyframes float-idle{
+  0%,100%{transform:translateY(0px)  rotateX(0deg)}
+  33%    {transform:translateY(-5px) rotateX(.75deg)}
+  66%    {transform:translateY(3px)  rotateX(-.48deg)}
+}
+
+/* ── holographic overlay ── */
+.card-holo{
+  position:absolute;inset:0;border-radius:18px;z-index:4;pointer-events:none;
+  opacity:0;transition:opacity .36s;
+  background:conic-gradient(from var(--r,0deg) at var(--mx,50%) var(--my,50%),
+    rgba(255,140,20,0)    0%,
+    rgba(255,180,40,.18) 15%,
+    rgba(255,240,100,.14) 30%,
+    rgba(240,100,30,.10)  50%,
+    rgba(255,140,20,0)   70%);
+  mix-blend-mode:screen;
+}
+.card-wrap:hover .card-holo{opacity:1}
+
+/* ── spotlight ── */
+.card-spot{
+  position:absolute;inset:0;border-radius:18px;z-index:3;pointer-events:none;
+  opacity:0;transition:opacity .3s;
+  background:radial-gradient(circle 130px at var(--mx,50%) var(--my,50%),
+    rgba(255,200,80,.12) 0%,transparent 80%);
+}
+.card-wrap:hover .card-spot{opacity:1}
+
+/* ── shimmer ── */
+.card-shimmer{
+  position:absolute;inset:0;border-radius:18px;z-index:2;pointer-events:none;overflow:hidden;
+}
+.card-shimmer::after{
+  content:'';position:absolute;
+  top:-60%;left:-75%;width:55%;height:220%;
+  background:linear-gradient(105deg,transparent 30%,rgba(255,210,90,.10) 50%,transparent 70%);
+  animation:zle-sweep 6.4s ease-in-out infinite;
+}
+@keyframes zle-sweep{
+  0%  {transform:translateX(0)     rotate(8deg)}
+  100%{transform:translateX(900px) rotate(8deg)}
+}
+
+/* ── texture ── */
+.card-texture{
+  position:absolute;inset:0;border-radius:18px;z-index:1;pointer-events:none;opacity:.040;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='6'%3E%3Ccircle cx='1' cy='1' r='.7' fill='%23e87820'/%3E%3C/svg%3E");
+  background-size:6px 6px;
+}
+
+/* ── edge ── */
+.card-edge{
+  position:absolute;inset:0;border-radius:18px;z-index:5;pointer-events:none;
+  box-shadow:inset 0 0 0 1px rgba(255,160,40,.16),
+             inset 0 1px 0   rgba(255,230,110,.12);
+}
+
+/* ── main card ── */
+.card{
+  width:100%;height:100%;border-radius:18px;
+  position:relative;overflow:hidden;z-index:6;
+  background:linear-gradient(132deg,
+    rgba(28,14,4,0.97)  0%,
+    rgba(20,9,2,0.98)   55%,
+    rgba(12,5,1,1)      100%);
+  backdrop-filter:blur(24px);
+  border:1px solid rgba(255,150,35,.15);
+  box-shadow:0 8px 44px rgba(0,0,0,.66),
+             0 2px 12px rgba(255,130,20,.11);
+}
+
+/* ── SVG art ── */
+.card-inner-art{position:absolute;inset:0;z-index:0;pointer-events:none}
+
+/* ── particle container ── */
+#sizzleContainer{position:absolute;inset:0;z-index:7;pointer-events:none;
+                 overflow:hidden;border-radius:18px}
+
+/* ── letter tag ── */
+.letter-tag{
+  position:absolute;top:14px;left:16px;z-index:9;
+  font-size:11px;font-weight:700;letter-spacing:.16em;
+  color:rgba(255,195,90,.84);
+  border:1px solid rgba(255,160,45,.25);
+  padding:3px 9px 3px 8px;border-radius:20px;
+  background:rgba(22,10,2,.54);backdrop-filter:blur(6px);
+  display:flex;align-items:center;gap:7px;
+}
+.zle-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:rgba(255,170,45,.90);
+  box-shadow:0 0 7px rgba(255,170,45,.68);
+  animation:zle-pulse 2.0s ease-in-out infinite;
+}
+@keyframes zle-pulse{
+  0%,100%{transform:scale(1);   opacity:.88}
+  50%    {transform:scale(1.48);opacity:1}
+}
+
+/* ── meanings overlay ── */
+.card-meanings{
+  position:absolute;inset:0;z-index:8;border-radius:18px;
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px;
+  padding:24px;
+  background:rgba(14,6,1,.83);backdrop-filter:blur(8px);
+  opacity:0;transition:opacity .42s;pointer-events:none;
+}
+.card-wrap:hover .card-meanings{opacity:1}
+.mean-item{
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+  color:rgba(255,215,120,.88);font-size:10px;font-weight:600;letter-spacing:.1em;
+  background:rgba(48,20,4,.52);border:1px solid rgba(255,155,40,.22);
+  border-radius:10px;padding:8px 13px;min-width:72px;
+}
+.mean-item span:first-child{font-size:18px}
+
+/* ── card content ── */
+.card-content{
+  position:absolute;bottom:0;right:0;
+  padding:12px 16px;z-index:9;text-align:right;
+}
+.name-main{
+  font-size:22px;font-weight:800;letter-spacing:.01em;
+  color:rgba(255,225,150,.94);
+  text-shadow:0 0 18px rgba(255,145,25,.44);
+}
+.name-dot{color:rgba(255,170,45,.88)}
+.name-sub{
+  font-size:8.5px;font-weight:500;letter-spacing:.16em;
+  color:rgba(240,170,70,.62);margin-top:2px;text-transform:uppercase;
+}
+.meta-row{
+  font-size:7.5px;font-weight:600;letter-spacing:.18em;
+  color:rgba(215,140,50,.46);margin-top:5px;text-transform:uppercase;
+}
+.badge{
+  display:inline-flex;align-items:center;gap:5px;
+  margin-top:7px;
+  background:rgba(24,10,2,.58);
+  border:1px solid rgba(255,155,40,.23);
+  border-radius:20px;padding:3px 10px;
+  font-size:9px;font-weight:700;letter-spacing:.14em;
+  color:rgba(255,210,105,.88);
+}
+.domain-url{
+  font-size:9px;font-weight:600;letter-spacing:.12em;
+  color:rgba(210,135,45,.42);margin-top:4px;
+}
+.domain-tld{color:rgba(255,165,45,.64)}
+
+/* ── sizzle particle ── */
+.sizzle{
+  position:absolute;
+  border-radius:50% 30% 50% 30%;
+  animation:sizzle-pop linear infinite;
+  opacity:0;
+}
+@keyframes sizzle-pop{
+  0%  {transform:translateY(0)      translateX(0)              rotate(0deg)   scale(1);   opacity:0}
+  7%  {opacity:.92}
+  50% {transform:translateY(-95px)  translateX(var(--dx,8px))  rotate(120deg) scale(.75); opacity:.65}
+  100%{transform:translateY(-200px) translateX(var(--dx2,14px)) rotate(240deg) scale(.2);  opacity:0}
+}
+
+/* ── SVG keyframes ── */
+@keyframes spark-burst  {0%,100%{transform:scale(1);opacity:.6}
+                          50%{transform:scale(1.18);opacity:1}}
+@keyframes flame-flick  {0%,100%{transform:scaleY(1) translateY(0)}
+                          40%{transform:scaleY(1.12) translateY(-2px)}
+                          70%{transform:scaleY(.94) translateY(1px)}}
+@keyframes zap-draw     {from{stroke-dashoffset:120} to{stroke-dashoffset:0}}
+@keyframes ring-sizzle  {0%{r:4;opacity:.74} 100%{r:30;opacity:0}}
+@keyframes glow-hot     {0%,100%{opacity:.44} 50%{opacity:.86}}
+@keyframes bar-fill     {from{width:0} to{width:var(--bw,60px)}}
+@keyframes word-fade    {0%,100%{opacity:.50} 50%{opacity:.92}}
+@keyframes float-word   {0%,100%{transform:translateY(0)}
+                          50%{transform:translateY(-2.5px)}}
+@keyframes twinkle-hot  {0%,100%{opacity:.30;transform:scale(.78)}
+                          50%{opacity:.92;transform:scale(1.22)}}
+@keyframes spin-spark   {from{transform:rotate(0deg)} to{transform:rotate(360deg)}}
+@keyframes path-trace   {from{stroke-dashoffset:180} to{stroke-dashoffset:0}}
+@keyframes ember-drift  {0%{transform:translateX(0) translateY(0)}
+                          33%{transform:translateX(3px) translateY(-4px)}
+                          66%{transform:translateX(-2px) translateY(-2px)}
+                          100%{transform:translateX(0) translateY(0)}}
+</style>
+</head>
+<body>
+
+<!-- background orbs -->
+<div class="bg-orb bg-orb-1"></div>
+<div class="bg-orb bg-orb-2"></div>
+<div class="bg-orb bg-orb-3"></div>
+<div class="bg-orb bg-orb-4"></div>
+<div class="bg-orb bg-orb-5"></div>
+<div class="bg-orb bg-orb-6"></div>
+
+<div class="scene">
+  <div class="card-wrap is-idle" id="cardWrap">
+    <div class="card-holo"    id="cardHolo"></div>
+    <div class="card-spot"    id="cardSpot"></div>
+    <div class="card-shimmer"></div>
+    <div class="card-texture"></div>
+    <div class="card-edge"></div>
+
+    <div class="card" id="cardFace">
+
+      <!-- SVG art layer -->
+      <div class="card-inner-art">
+        <svg width="380" height="240" viewBox="0 0 380 240"
+             xmlns="http://www.w3.org/2000/svg" overflow="visible">
+          <defs>
+            <radialGradient id="zleGrad" cx="33%" cy="50%" r="60%">
+              <stop offset="0%"   stop-color="rgba(255,145,25,0.20)"/>
+              <stop offset="100%" stop-color="rgba(12,5,1,0)"/>
+            </radialGradient>
+            <radialGradient id="flameGrad" cx="50%" cy="100%" r="60%">
+              <stop offset="0%"   stop-color="rgba(255,240,120,0.90)"/>
+              <stop offset="40%"  stop-color="rgba(255,160,30,0.80)"/>
+              <stop offset="100%" stop-color="rgba(200,50,10,0.60)"/>
+            </radialGradient>
+            <clipPath id="zleClip">
+              <rect width="380" height="240" rx="18"/>
+            </clipPath>
+            <marker id="zleArrow" markerWidth="6" markerHeight="6"
+                    refX="5" refY="3" orient="auto">
+              <path d="M0,.5 L5,3 L0,5.5" fill="none"
+                    stroke="rgba(255,175,50,0.80)" stroke-width="1"/>
+            </marker>
+            <filter id="zleGlow">
+              <feGaussianBlur stdDeviation="3.0" result="blur"/>
+              <feMerge><feMergeNode in="blur"/>
+                       <feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <filter id="zleHeatGlow">
+              <feGaussianBlur stdDeviation="4.5" result="blur"/>
+              <feMerge><feMergeNode in="blur"/>
+                       <feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+
+          <g clip-path="url(#zleClip)">
+            <!-- base wash -->
+            <rect width="380" height="240" fill="url(#zleGrad)"/>
+
+            <!-- ══════════════════════════════════
+                 SIZZLE / SPARK CORE  (left-center)
+                 ══════════════════════════════════ -->
+
+            <!-- heat glow aura -->
+            <circle cx="103" cy="122" r="44"
+                    fill="rgba(255,120,20,0.08)"
+                    style="animation:glow-hot 2.8s ease-in-out infinite"
+                    filter="url(#zleHeatGlow)"/>
+            <circle cx="103" cy="122" r="32"
+                    fill="rgba(255,150,30,0.10)"
+                    style="animation:glow-hot 2.8s .7s ease-in-out infinite"/>
+
+            <!-- sizzle rings -->
+            <circle cx="103" cy="122" r="4" fill="none"
+                    stroke="rgba(255,175,40,0.70)" stroke-width="1.3"
+                    style="animation:ring-sizzle 2.6s ease-out infinite"/>
+            <circle cx="103" cy="122" r="4" fill="none"
+                    stroke="rgba(240,130,25,0.48)" stroke-width=".9"
+                    style="animation:ring-sizzle 2.6s ease-out 1.3s infinite"/>
+            <circle cx="103" cy="122" r="4" fill="none"
+                    stroke="rgba(255,210,60,0.32)" stroke-width=".6"
+                    style="animation:ring-sizzle 2.6s ease-out 2.6s infinite" />
+
+            <!-- ── SPINNING SPARK RING ── -->
+            <g transform="translate(103,122)"
+               style="animation:spin-spark 5s linear infinite;
+                      transform-origin:0px 0px">
+              <!-- 6 spark arms -->
+              <line x1="0" y1="-24" x2="0" y2="-14"
+                    stroke="rgba(255,200,60,0.65)" stroke-width="1.4"
+                    stroke-linecap="round"/>
+              <line x1="20" y1="-12" x2="12" y2="-7"
+                    stroke="rgba(255,170,35,0.55)" stroke-width="1.2"
+                    stroke-linecap="round"/>
+              <line x1="20" y1="12"  x2="12" y2="7"
+                    stroke="rgba(240,140,25,0.50)" stroke-width="1.1"
+                    stroke-linecap="round"/>
+              <line x1="0"  y1="24"  x2="0"  y2="14"
+                    stroke="rgba(255,190,45,0.55)" stroke-width="1.2"
+                    stroke-linecap="round"/>
+              <line x1="-20" y1="12" x2="-12" y2="7"
+                    stroke="rgba(250,155,30,0.48)" stroke-width="1.1"
+                    stroke-linecap="round"/>
+              <line x1="-20" y1="-12" x2="-12" y2="-7"
+                    stroke="rgba(255,180,40,0.52)" stroke-width="1.2"
+                    stroke-linecap="round"/>
+            </g>
+
+            <!-- ── FLAME (central) ── -->
+            <g transform="translate(103,130)"
+               style="animation:flame-flick 1.6s ease-in-out infinite;
+                      transform-origin:0px 0px">
+              <!-- outer flame -->
+              <path d="M 0 0 C -10 -10 -12 -22 0 -34 C 12 -22 10 -10 0 0 Z"
+                    fill="url(#flameGrad)" opacity=".70"
+                    filter="url(#zleGlow)"/>
+              <!-- inner bright core -->
+              <path d="M 0 0 C -5 -8 -6 -18 0 -26 C 6 -18 5 -8 0 0 Z"
+                    fill="rgba(255,245,180,0.90)"/>
+              <!-- tip spark -->
+              <circle cx="0" cy="-34" r="2.2"
+                      fill="rgba(255,255,220,0.95)"
+                      style="animation:spark-burst 1.4s ease-in-out infinite"/>
+            </g>
+
+            <!-- ── LIGHTNING ZAP (top-left accent) ── -->
+            <path d="M 76 70 L 68 90 L 78 90 L 68 114"
+                  fill="none" stroke="rgba(255,220,60,0.65)"
+                  stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+                  filter="url(#zleGlow)"
+                  stroke-dasharray="60"
+                  style="animation:zap-draw 1.6s .2s both ease"/>
+            <!-- zap highlight -->
+            <path d="M 76 70 L 68 90 L 78 90 L 68 114"
+                  fill="none" stroke="rgba(255,255,200,0.30)"
+                  stroke-width=".7" stroke-linecap="round" stroke-linejoin="round"/>
+
+            <!-- ── EMBER DRIFT DOTS ── -->
+            <circle cx="72"  cy="92"  r="2.4"
+                    fill="rgba(255,180,40,0.65)"
+                    style="animation:ember-drift 4.2s 0s ease-in-out infinite;
+                           animation:twinkle-hot 2.4s 0s ease-in-out infinite"/>
+            <circle cx="134" cy="98"  r="1.8"
+                    fill="rgba(255,150,30,0.58)"
+                    style="animation:twinkle-hot 2.4s .7s ease-in-out infinite"/>
+            <circle cx="78"  cy="152" r="2.0"
+                    fill="rgba(255,200,55,0.55)"
+                    style="animation:twinkle-hot 2.4s 1.4s ease-in-out infinite"/>
+            <circle cx="130" cy="148" r="1.6"
+                    fill="rgba(240,130,25,0.52)"
+                    style="animation:twinkle-hot 2.4s 2.1s ease-in-out infinite"/>
+            <circle cx="66"  cy="130" r="1.4"
+                    fill="rgba(255,210,65,0.48)"
+                    style="animation:twinkle-hot 2.4s 2.8s ease-in-out infinite"/>
+            <circle cx="140" cy="130" r="1.5"
+                    fill="rgba(255,160,35,0.50)"
+                    style="animation:twinkle-hot 2.4s .35s ease-in-out infinite"/>
+
+            <!-- velocity streaks to chains -->
+            <line x1="132" y1="112" x2="155" y2="106"
+                  stroke="rgba(255,170,40,0.38)" stroke-width=".9"
+                  stroke-dasharray="12 6"
+                  style="animation:path-trace 2s .2s both ease"/>
+            <line x1="134" y1="122" x2="158" y2="122"
+                  stroke="rgba(240,145,30,0.32)" stroke-width=".8"
+                  stroke-dasharray="12 6"
+                  style="animation:path-trace 2s .4s both ease"/>
+            <line x1="132" y1="132" x2="155" y2="138"
+                  stroke="rgba(225,125,25,0.28)" stroke-width=".7"
+                  stroke-dasharray="10 6"
+                  style="animation:path-trace 2s .6s both ease"/>
+
+            <!-- ══════════════════════════════════
+                 WORD TRANSFORMATION CHAINS
+                 ══════════════════════════════════ -->
+            <!-- formula header -->
+            <text x="168" y="37"
+                  font-family="Inter,sans-serif" font-size="7.5" font-weight="700"
+                  letter-spacing=".12em" fill="rgba(255,165,45,0.50)">
+              [root] + ‑zle → [intense / repeated action]
+            </text>
+
+            <!-- left bracket -->
+            <path d="M 158 42 L 152 42 L 152 148 L 158 148"
+                  fill="none" stroke="rgba(240,150,35,0.24)" stroke-width="1"/>
+            <text x="144" y="86" text-anchor="middle"
+                  font-family="Inter,sans-serif" font-size="7" font-weight="700"
+                  letter-spacing=".1em" fill="rgba(240,148,35,0.40)"
+                  transform="rotate(-90,144,86)">SIZZLE</text>
+
+            <!-- row 1: siz → sizzle -->
+            <rect x="168" y="46" width="42" height="15" rx="4"
+                  fill="rgba(22,8,2,0.58)" stroke="rgba(240,150,35,0.24)" stroke-width=".7"/>
+            <text x="189" y="57.5" text-anchor="middle"
+                  font-family="Inter,sans-serif" font-size="8" font-weight="600"
+                  fill="rgba(255,200,100,0.88)"
+                  style="animation:word-fade 4s 0s infinite">siz</text>
+            <path d="M 212 53.5 L 223 53.5" fill="none"
+                  stroke="rgba(255,170,45,0.58)" stroke-width="1.2"
+                  marker-end="url(#zleArrow)"/>
+            <rect x="225" y="47" width="22" height="13" rx="3"
+                  fill="rgba(80,32,4,0.62)" stroke="rgba(255,195,65,0.50)" stroke-width=".8"/>
+            <text x="236" y="56.5" text-anchor="middle"
+                  font-family="Inter,sans-serif" font-size="7" font-weight="700"
+                  fill="rgba(255,235,155,0.94)">+zle</text>
+            <path d="M 249 53.5 L 260 53.5" fill="none"
+                  stroke="rgba(255,170,45,0.58)" stroke-width="1.2"
+                  marker-end="url(#zleArrow)"/>
+            <rect x="262" y="44" width="52" height="19" rx="5"
+                  fill="rgba(28,10,2,0.60)" stroke="rgba(245,160,38,0.30)" stroke-width=".7"/>
+            <text x="288" y="57" text-anchor="middle"
+                  font-family="Inter,sans-serif" font-size="8.5" font-weight="700"
+                  fill="rgba(255,215,120,0.94)"
+                  style="animation:word-fade 4s .5s infinite">sizzle</text>
+
+            <!-- row 2: daz → dazzle -->
+            <rect x="168" y="73" width="42" height="15" rx="4"
+                  fill="rgba(22,8,2,0.58)" stroke="rgba(240,150,35,0.24)" stroke-width=".7"/>
+            <text x="189" y="84.5" text-anchor="middle"
+                  font-family="Inter,sans-serif" font-size="8" font-weight="600"
+                  fill="rgba(255,200,100,0.88)"
+                  style="animation:word-fade 4s .8s infinite">daz</text>
+            <path d="M 212 80.5 L 223 80.5" fill="none"
+                  stroke="rgba(255,170,45,0.58)" stroke-width="1.2"
+                  marker-end="url(#zleArrow)"/>
+            <rect x="225" y="74" width="22" height="13" rx="3"
+                  fill="rgba(80,32,4,0.62)" stroke="rgba(255,195,65,0.50)" stroke-width=".8"/>
+            <text x="236" y="83.5" text-anchor="middle"
+                  font-family="Inter,sans-serif" font-size="7" font-weight="700"
+                  fill="rgba(255,235,155,0.94)">+zle</text>
+            <path d="M 249 80.5 L 262 80.5" fill="none"
+                  stroke="rgba(255,170,45,0.58)" stroke-width="1.2"
+                  marker-end="url(#zleArrow)"/>
+            <rect x="262" y="71" width="52" height="19" rx="5"
+                  fill="rgba(28,10,2,0.60)" stroke="rgba(245,160,38,0.30)" stroke-width=".7"/>
+            <text x="288" y="84" text-anchor="middle"
+                  font-family="Inter,sans-serif" font-size="8.5" font-weight="700"
+                  fill="rgba(255,215,120,0.94)"
+                  style="animation:word-fade 4s 1.3s infinite">dazzle</text>
+
+            <!-- row 3: puz → puzzle -->
+            <rect x="168" y="100" width="42" height="15" rx="4"
+                  fill="rgba(22,8,2,0.58)" stroke="rgba(240,150,35,0.24)" stroke-width=".7"/>
+            <text x="189" y="111.5" text-anchor="middle"
+                  font-family="Inter,sans-serif" font-size="8" font-weight="600"
+                  fill="rgba(255,200,100,0.88)"
+                  style="animation:word-fade 4s 1.6s infinite">puz</text>
+            <path d="M 212 107.5 L 223 107.5" fill="none"
+                  stroke="rgba(255,170,45,0.58)" stroke-width="1.2"
+                  marker-end="url(#zleArrow)"/>
+            <rect x="225" y="101" width="22" height="13" rx="3"
+                  fill="rgba(80,32,4,0.62)" stroke="rgba(255,195,65,0.50)" stroke-width=".8"/>
+            <text x="236" y="110.5" text-anchor="middle"
+                  font-family="Inter,sans-serif" font-size="7" font-weight="700"
+                  fill="rgba(255,235,155,0.94)">+zle</text>
+            <path d="M 249 107.5 L 262 107.5" fill="none"
+                  stroke="rgba(255,170,45,0.58)" stroke-width="1.2"
+                  marker-end="url(#zleArrow)"/>
+            <rect x="262" y="98" width="52" height="19" rx="5"
+                  fill="rgba(28,10,2,0.60)" stroke="rgba(245,160,38,0.30)" stroke-width=".7"/>
+            <text x="288" y="111" text-anchor="middle"
+                  font-family="Inter,sans-serif" font-size="8.5" font-weight="700"
+                  fill="rgba(255,215,120,0.94)"
+                  style="animation:word-fade 4s 2.1s infinite">puzzle</text>
+
+            <!-- row 4: fiz → fizzle -->
+            <rect x="168" y="127" width="42" height="15" rx="4"
+                  fill="rgba(22,8,2,0.58)" stroke="rgba(240,150,35,0.24)" stroke-width=".7"/>
+            <text x="189" y="138.5" text-anchor="middle"
+                  font-family="Inter,sans-serif" font-size="8" font-weight="600"
+                  fill="rgba(255,200,100,0.88)"
+                  style="animation:word-fade 4s 2.4s infinite">fiz</text>
+            <path d="M 212 134.5 L 223 134.5" fill="none"
+                  stroke="rgba(255,170,45,0.58)" stroke-width="1.2"
+                  marker-end="url(#zleArrow)"/>
+            <rect x="225" y="128" width="22" height="13" rx="3"
+                  fill="rgba(80,32,4,0.62)" stroke="rgba(255,195,65,0.50)" stroke-width=".8"/>
+            <text x="236" y="137.5" text-anchor="middle"
+                  font-family="Inter,sans-serif" font-size="7" font-weight="700"
+                  fill="rgba(255,235,155,0.94)">+zle</text>
+            <path d="M 249 134.5 L 262 134.5" fill="none"
+                  stroke="rgba(255,170,45,0.58)" stroke-width="1.2"
+                  marker-end="url(#zleArrow)"/>
+            <rect x="262" y="125" width="52" height="19" rx="5"
+                  fill="rgba(28,10,2,0.60)" stroke="rgba(245,160,38,0.30)" stroke-width=".7"/>
+            <text x="288" y="138" text-anchor="middle"
+                  font-family="Inter,sans-serif" font-size="8.5" font-weight="700"
+                  fill="rgba(255,215,120,0.94)"
+                  style="animation:word-fade 4s 2.9s infinite">fizzle</text>
+
+            <!-- ══════════════════════════════════
+                 INTENSITY BARS  (lower-right)
+                 ══════════════════════════════════ -->
+            <g transform="translate(262,158)">
+              <text x="0" y="0" font-family="Inter,sans-serif" font-size="6.5" font-weight="700"
+                    letter-spacing=".12em" fill="rgba(255,165,45,0.50)">SIZZLE</text>
+              <rect x="0" y="5" width="72" height="4" rx="2" fill="rgba(22,8,2,0.55)"/>
+              <rect x="0" y="5" height="4" rx="2" fill="rgba(255,165,40,0.68)"
+                    style="--bw:72px;animation:bar-fill 2.5s .3s both ease-out;width:0"/>
+            </g>
+            <g transform="translate(262,172)">
+              <text x="0" y="0" font-family="Inter,sans-serif" font-size="6.5" font-weight="700"
+                    letter-spacing=".12em" fill="rgba(240,138,32,0.44)">DAZZLE</text>
+              <rect x="0" y="5" width="72" height="4" rx="2" fill="rgba(22,8,2,0.55)"/>
+              <rect x="0" y="5" height="4" rx="2" fill="rgba(240,140,30,0.62)"
+                    style="--bw:60px;animation:bar-fill 2.5s .7s both ease-out;width:0"/>
+            </g>
+            <g transform="translate(262,186)">
+              <text x="0" y="0" font-family="Inter,sans-serif" font-size="6.5" font-weight="700"
+                    letter-spacing=".12em" fill="rgba(220,115,25,0.40)">FIZZLE</text>
+              <rect x="0" y="5" width="72" height="4" rx="2" fill="rgba(22,8,2,0.55)"/>
+              <rect x="0" y="5" height="4" rx="2" fill="rgba(220,118,24,0.56)"
+                    style="--bw:48px;animation:bar-fill 2.5s 1.1s both ease-out;width:0"/>
+            </g>
+
+            <!-- ══════════════════════════════════
+                 WORD CLOUD  (bottom)
+                 ══════════════════════════════════ -->
+            <text x="14"  y="207" font-family="Inter,sans-serif" font-size="8"
+                  font-weight="600" fill="rgba(240,148,32,0.28)" letter-spacing=".05em"
+                  style="animation:float-word 5.8s 0s ease-in-out infinite">nuzzle</text>
+            <text x="78"  y="215" font-family="Inter,sans-serif" font-size="7.5"
+                  font-weight="600" fill="rgba(255,170,40,0.24)" letter-spacing=".05em"
+                  style="animation:float-word 5.8s 1.1s ease-in-out infinite">drizzle</text>
+            <text x="148" y="208" font-family="Inter,sans-serif" font-size="8"
+                  font-weight="600" fill="rgba(255,200,55,0.26)" letter-spacing=".05em"
+                  style="animation:float-word 5.8s 2.2s ease-in-out infinite">frazzle</text>
+            <text x="220" y="216" font-family="Inter,sans-serif" font-size="7.5"
+                  font-weight="600" fill="rgba(238,140,28,0.23)" letter-spacing=".05em"
+                  style="animation:float-word 5.8s 3.3s ease-in-out infinite">muzzle</text>
+
+            <!-- ── +ZLE big badge (top-right) ── -->
+            <g transform="translate(316,16)">
+              <rect x="0" y="0" width="46" height="22" rx="6"
+                    fill="rgba(72,26,4,0.68)" stroke="rgba(255,185,55,0.48)" stroke-width="1"/>
+              <text x="23" y="14.5" text-anchor="middle"
+                    font-family="Inter,sans-serif" font-size="11" font-weight="800"
+                    fill="rgba(255,235,150,0.95)" letter-spacing=".04em">‑zle</text>
+            </g>
+
+            <!-- registration corners -->
+            <path d="M 18 10 L 10 10 L 10 18"    fill="none"
+                  stroke="rgba(255,160,40,0.22)" stroke-width="1"/>
+            <path d="M 362 10 L 370 10 L 370 18"  fill="none"
+                  stroke="rgba(255,160,40,0.22)" stroke-width="1"/>
+            <path d="M 18 230 L 10 230 L 10 222"  fill="none"
+                  stroke="rgba(255,160,40,0.22)" stroke-width="1"/>
+            <path d="M 362 230 L 370 230 L 370 222" fill="none"
+                  stroke="rgba(255,160,40,0.22)" stroke-width="1"/>
+
+          </g>
+        </svg>
+      </div>
+
+      <!-- sizzle particles -->
+      <div id="sizzleContainer"></div>
+
+      <!-- letter tag -->
+      <div class="letter-tag">‑zle<span class="zle-dot"></span></div>
+
+      <!-- hover meanings overlay -->
+      <div class="card-meanings">
+        <div class="mean-item"><span>🔥</span><span>Sizzle & dazzle</span></div>
+        <div class="mean-item"><span>⚡</span><span>Intense action</span></div>
+        <div class="mean-item"><span>✨</span><span>Repeated burst</span></div>
+        <div class="mean-item"><span>✦</span><span>Frequentative</span></div>
+      </div>
+
+      <!-- card text content -->
+      <div class="card-content">
+        <div class="name-main">zle<span class="name-dot">.</span>kr</div>
+        <div class="name-sub">the sizzle suffix · dazzle &amp; fizzle with energy</div>
+        <div class="meta-row">suffix — intensitive</div>
+        <div class="badge"><span>🔥</span><span>‑ZLE</span></div>
+        <div class="domain-url">zle<span class="domain-tld">.kr</span></div>
+      </div>
+
+    </div><!-- .card -->
+  </div><!-- .card-wrap -->
+</div><!-- .scene -->
+
+<script>
+(function(){
+  const wrap     = document.getElementById('cardWrap');
+  const holo     = document.getElementById('cardHolo');
+  const spot     = document.getElementById('cardSpot');
+  const sizzleCt = document.getElementById('sizzleContainer');
+
+  let tx=0, ty=0, cx=0, cy=0;
+  const LERP=0.10, MAX_Y=14, MAX_X=11;
+  let raf;
+
+  function lerp(a,b,t){ return a+(b-a)*t }
+
+  function tick(){
+    cx=lerp(cx,tx,LERP);
+    cy=lerp(cy,ty,LERP);
+    wrap.style.transform=
+      `rotateY(${cx}deg) rotateX(${cy}deg) scale(1.028)`;
+    raf=requestAnimationFrame(tick);
+  }
+
+  wrap.addEventListener('mouseenter',()=>{
+    wrap.classList.remove('is-idle');
+    wrap.style.animation='none';
+    cancelAnimationFrame(raf);
+    tick();
+  });
+
+  wrap.addEventListener('mousemove',e=>{
+    const r  = wrap.getBoundingClientRect();
+    const nx = ((e.clientX-r.left)/r.width  -.5)*2;
+    const ny = ((e.clientY-r.top) /r.height -.5)*2;
+    tx =  nx*MAX_Y;
+    ty = -ny*MAX_X;
+    const px=(e.clientX-r.left)/r.width *100;
+    const py=(e.clientY-r.top) /r.height*100;
+    holo.style.setProperty('--mx',`${px}%`);
+    holo.style.setProperty('--my',`${py}%`);
+    holo.style.setProperty('--r', `${nx*180}deg`);
+    spot.style.setProperty('--mx',`${px}%`);
+    spot.style.setProperty('--my',`${py}%`);
+  });
+
+  wrap.addEventListener('mouseleave',()=>{
+    tx=0; ty=0;
+    setTimeout(()=>{
+      cancelAnimationFrame(raf);
+      wrap.style.transform='';
+      wrap.style.animation='float-idle 9.2s ease-in-out infinite';
+    },370);
+  });
+
+  /* ── sizzle particles ── */
+  const SIZZLES=[
+    {x: 5,  s:2.2, c:'rgba(255,180,40,0.86)', dur: 7.4, del:0.0, dx:' 9px', dx2:' 15px'},
+    {x:13,  s:1.6, c:'rgba(240,120,25,0.78)', dur: 9.0, del:0.6, dx:'-12px',dx2:'-20px'},
+    {x:22,  s:2.6, c:'rgba(255,225,70,0.82)', dur: 6.8, del:1.3, dx:' 16px',dx2:' 24px'},
+    {x:32,  s:1.8, c:'rgba(230,100,20,0.74)', dur:10.2, del:2.0, dx:' -8px',dx2:'-14px'},
+    {x:43,  s:2.4, c:'rgba(255,195,50,0.80)', dur: 8.0, del:0.4, dx:' 12px',dx2:' 19px'},
+    {x:52,  s:2.0, c:'rgba(245,145,28,0.76)', dur: 9.4, del:1.7, dx:'-15px',dx2:'-23px'},
+    {x:61,  s:2.8, c:'rgba(255,210,60,0.80)', dur: 6.6, del:2.9, dx:' 20px',dx2:' 28px'},
+    {x:70,  s:1.5, c:'rgba(220,90,18,0.70)',  dur: 8.8, del:1.0, dx:'-10px',dx2:'-16px'},
+    {x:79,  s:2.5, c:'rgba(255,230,80,0.84)', dur: 7.6, del:2.4, dx:' 14px',dx2:' 22px'},
+    {x:87,  s:1.9, c:'rgba(250,160,32,0.78)', dur: 9.8, del:1.2, dx:'-17px',dx2:'-25px'},
+    {x:93,  s:2.1, c:'rgba(255,190,45,0.80)', dur: 8.2, del:3.5, dx:' 11px',dx2:' 18px'},
+    {x:48,  s:2.3, c:'rgba(240,128,22,0.78)', dur: 8.6, del:4.1, dx:'-13px',dx2:'-21px'},
+  ];
+
+  SIZZLES.forEach(p=>{
+    const d=document.createElement('div');
+    d.className='sizzle';
+    d.style.cssText=`
+      left:${p.x}%;
+      bottom:${-(p.s*2)}px;
+      width:${p.s*1.6}px;
+      height:${p.s}px;
+      background:${p.c};
+      box-shadow:0 0 ${p.s*2.8}px ${p.c};
+      --dx:${p.dx};
+      --dx2:${p.dx2};
+      animation-duration:${p.dur}s;
+      animation-delay:${p.del}s;
+    `;
+    sizzleCt.appendChild(d);
+  });
+
+})();
+</script>
+</body>
+</html>
